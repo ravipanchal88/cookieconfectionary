@@ -1,11 +1,5 @@
-
-
 var z;
-var x = 0;
-Cookies.set("totalcookie",0);
-Cookies.set("cookie1",0);
-Cookies.set("cookie2",0);
-Cookies.set("cookie3",0);
+displaycookie_count();
 
 function getCookieCounts(){
    z = parseInt((Cookies.get("totalcookie")));
@@ -13,24 +7,26 @@ function getCookieCounts(){
 }
 
 function update_totalcookie(count){
-	z=z+1;
-	Cookies.set("totalcookie",z);
+	console.log(count);
+	z=z + 1;
+	console.log(z);
+	Cookies.set("totalcookie",parseInt(z));
 }
 
 function recordcookie1(){
 	getCookieCounts();
-	current_x = parseInt((Cookies.get("cookie1")));
+	current_x = parseInt((Cookies.get("cookie1")) || 0);
 	x = current_x + 1;
-	update_totalcookie(x);
+	update_totalcookie(current_x);
 	Cookies.set("cookie1", parseInt(x));
 	displaycookie_count();
 }
 
 function recordcookie2(){
 	getCookieCounts();
-	current_x = parseInt((Cookies.get("cookie2")));
+	current_x = parseInt((Cookies.get("cookie2"))|| 0);
 	x = current_x + 1;
-	update_totalcookie(x);
+	update_totalcookie(current_x);
 	Cookies.set("cookie2", parseInt(x));
 	displaycookie_count();
 	
@@ -38,9 +34,9 @@ function recordcookie2(){
 
 function recordcookie3(){
 	getCookieCounts();
-	current_x = parseInt((Cookies.get("cookie3")));
+	current_x = parseInt((Cookies.get("cookie3")) || 0);
 	x = current_x + 1;
-	update_totalcookie(x);
+	update_totalcookie(current_x);
 	Cookies.set("cookie3", parseInt(x));
 	displaycookie_count();
 	
